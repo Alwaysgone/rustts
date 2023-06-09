@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <!-- used by trunk to indicate that wasm-opt should be called to make the wasm file smaller -->
+  <link data-trunk rel="rust" data-wasm-opt="s" />
+  <!-- necessary for trunk to copy test_data.json to dist directly during build-->
+  <!-- <link data-trunk rel="copy-file" href="test_data.json"/> -->
+  <head>
+    <meta charset="utf-8" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <title>Rustts</title>
+  </head>
+  <body>
+    <div id="main_div", style="position: relative;display: flex;flex-flow: column wrap;align-items: center;">
+        <select id="speaker">
+			<option value="Zeina">Arabic / Zeina</option>
+			<option value="Russell">Australian English / Russell</option>
+			<option value="Nicole">Australian English / Nicole</option>
+			<option value="Vitoria">Brazilian Portuguese / Vitória</option>
+			<option value="Camila">Brazilian Portuguese / Camila</option>
+			<option value="Ricardo">Brazilian Portuguese / Ricardo</option>
+			<option value="Emma">British English / Emma</option>
+			<option value="Brian">British English / Brian</option>
+			<option value="Amy">British English / Amy</option>
+			<option value="Chantal">Canadian French / Chantal</option>
+			<option value="Conchita">Castilian Spanish / Conchita</option>
+			<option value="Lucia">Castilian Spanish / Lucia</option>
+			<option value="Enrique">Castilian Spanish / Enrique</option>
+			<option value="Zhiyu">Chinese Mandarin / Zhiyu</option>
+			<option value="Naja">Danish / Naja</option>
+			<option value="Mads">Danish / Mads</option>
+			<option value="Ruben">Dutch / Ruben</option>
+			<option value="Lotte">Dutch / Lotte</option>
+			<option value="Celine">French / Céline</option>
+			<option value="Lea">French / Léa</option>
+			<option value="Mathieu">French / Mathieu</option>
+			<option value="Hans">German / Hans</option>
+			<option value="Vicki">German / Vicki</option>
+			<option value="Marlene">German / Marlene</option>
+			<option value="Dora">Icelandic / Dóra</option>
+			<option value="Karl">Icelandic / Karl</option>
+			<option value="Aditi">Indian English / Aditi</option>
+			<option value="Raveena">Indian English / Raveena</option>
+			<option value="Bianca">Italian / Bianca</option>
+			<option value="Carla">Italian / Carla</option>
+			<option value="Giorgio">Italian / Giorgio</option>
+			<option value="Takumi">Japanese / Takumi</option>
+			<option value="Mizuki">Japanese / Mizuki</option>
+			<option value="Seoyeon">Korean / Seoyeon</option>
+			<option value="Mia">Mexican Spanish / Mia</option>
+			<option value="Liv">Norwegian / Liv</option>
+			<option value="Jacek">Polish / Jacek</option>
+			<option value="Jan">Polish / Jan</option>
+			<option value="Maja">Polish / Maja</option>
+			<option value="Ewa">Polish / Ewa</option>
+			<option value="Cristiano">Portuguese / Cristiano</option>
+			<option value="Ines">Portuguese / Inês</option>
+			<option value="Carmen">Romanian / Carmen</option>
+			<option value="Maxim">Russian / Maxim</option>
+			<option value="Tatyana">Russian / Tatyana</option>
+			<option value="Astrid">Swedish / Astrid</option>
+			<option value="Filiz">Turkish / Filiz</option>
+			<option value="Salli" selected="">US English / Salli</option>
+			<option value="Ivy">US English / Ivy</option>
+			<option value="Joey">US English / Joey</option>
+			<option value="Matthew">US English / Matthew</option>
+			<option value="Kimberly">US English / Kimberly</option>
+			<option value="Kendra">US English / Kendra</option>
+			<option value="Justin">US English / Justin</option>
+			<option value="Joanna">US English / Joanna</option>
+			<option value="Lupe">US Spanish / Lupe</option>
+			<option value="Penelope">US Spanish / Penélope</option>
+			<option value="Miguel">US Spanish / Miguel</option>
+			<option value="Gwyneth">Welsh / Gwyneth</option>
+			<option value="Geraint">Welsh English / Geraint</option>
+		</select>
+        <div id="tts_input_div">
+        </div>
+    </div>
+  </body>
+</html>
