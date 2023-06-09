@@ -1,0 +1,53 @@
+name: pipeline
+
+on: push
+
+env:
+  CARGO_TERM_COLOR: always
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    name: Build WASM
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: ⚡ Cache
+      uses: actions/cache@v2
+      with:
+        path: |
+          ~/.cargo/registry
+          ~/.cargo/git
+          target
+        key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+    - name: Add wasm32-unknown-unknown target
+      uses: actions-rs/toolchain@v1.0.6
+      with:
+        toolchain: stable
+        target: wasm32-unknown-unknown
+    - name: trunk-action
+      uses: jetli/trunk-action@v0.1.0
+    - name: Run trunk build
+      run: trunk build --release --public-url rustts
+    - name: Upload build
+      uses: actions/upload-pages-artifact@v1
+      with:
+        path: dist
+  
+  publish:
+    name: Publish
+    needs: build
+    
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
